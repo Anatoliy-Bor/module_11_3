@@ -1,0 +1,21 @@
+from inspect import getmodule
+
+def intr(obj):
+	dic = {'type': type(obj).__name__,
+        'attributes': obj.__dict__,
+        'methods': dir(obj),
+        'module': getmodule(obj),
+        'id': id(obj)}
+	return dic
+
+class MyClass:
+    def __init__(self):
+        self.a = 1
+        self.b = 2
+ 
+    def my_method(self):
+        pass	
+
+obj = MyClass()
+
+print(intr(obj))
